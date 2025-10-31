@@ -1,0 +1,501 @@
+/* ========== RESET & BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #4A90E2;
+    --text-color: #00264C;
+    --bg-second-color: #FFFFFF;
+    --accent-color: #6FD08C;
+    --hover-color: #003366;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    height: 70px;
+    /* box-shadow: var(--shadow); */
+    transition: all 0.3s ease;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+#menu-icon {
+    font-size: 2.4rem;
+    display: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#menu-icon:hover {
+    color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    margin: 0 1.2rem;
+    text-decoration: none;
+    color: var(--bg-second-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar a:hover {
+    color: var(--text-color);
+    transform: translateY(-2px);
+}
+
+
+/* ========== ACCUEIL SECTION ========== */
+.accueil-content {
+    background: linear-gradient(135deg, #4A90E2, #6FD08C);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 120px 8% 80px;
+    min-height: 100vh;
+    gap: 2rem;
+}
+
+.accueil-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    min-width: 300px;
+    color: var(--text-color);
+}
+
+.accueil-left h1 {
+    color: var(--bg-second-color);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.accueil-left p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f0f0f0;
+    max-width: 90%;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-second-color);
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.6rem;
+    font-size: 1rem;
+    background: none;
+    color: var(--text-color);
+}
+
+.search-bar button {
+    background-color: var(--text-color);
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.search-bar button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.accueil-img {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.accueil-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.accueil-img img:hover {
+    transform: scale(1.02);
+}
+
+
+.accueil-box {
+    position: relative;
+    margin: 4rem auto;
+    width: 90%;
+    max-width: 800px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #4A90E2, #6FD08C);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    color: white;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.card.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    z-index: 2;
+}
+
+.card.previous {
+    transform: translateX(-100%);
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* ========== MEDECINS SECTION ========== */
+.medecins-content {
+    background: linear-gradient(135deg, #4A90E2, #6FD08C);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 80px 8%;
+    min-height: 100vh;
+    gap: 3rem;
+}
+
+.medecins-img {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.medecins-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.medecins-img img:hover {
+    transform: scale(1.02);
+}
+
+.medecins-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    place-items: center;
+    gap: 1.875rem;
+    row-gap: 3.125rem;
+}
+
+.medecins-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 50px;
+    background-color: var(--bg-second-color);
+    border: 2px solid var(--bg-color);
+    border-radius: 1.875rem;
+    gap: 0.125rem;
+    padding: 3.125rem 1.25rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.medecins-card:hover {
+    transform: scale(1.02);
+}
+
+.medecins-card img {
+    max-width: 18.75rem;
+    border-radius: 1.25rem;
+    object-fit: cover;
+}
+
+.medecins-card h3 {
+    font-size: 1.875rem;
+}
+
+.badge {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.green {
+    background-color: #2ecc71;
+}
+
+.blue {
+    background-color: #3498db;
+}
+
+.medecins-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    padding: 0.6rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.875rem;
+    background-color: var(--accent-color);
+    border-radius: 1.875rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--bg-second-color);
+}
+
+/* ========== RENDEZ VOUS SECTION ========== */
+.rendez-vous {
+    background: linear-gradient(135deg, #4A90E2, #6FD08C);
+    padding: 6rem;
+}
+
+.rendez-vous form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 1rem;
+}
+
+.information-choix {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.rendez-vous form .information input,
+ .information select{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    background-color: var(--bg-second-color);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin: 1.5rem 0;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background: var(--bg-color);
+    color: #F9FAFB;
+    height: 80px;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1024px) {
+    header {
+        padding: 1rem 5%;
+    }
+
+    .accueil-content,
+    .medecins-content,
+    .rendez-vous-content {
+        padding: 120px 5% 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .accueil-left,
+    .medecins-left {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .accueil-left p {
+        max-width: 100%;
+    }
+
+    .search-bar {
+        margin: 0 auto;
+    }
+
+    .accueil-box {
+        height: 350px;
+        margin: 3rem auto;
+    }
+
+    .card {
+        padding: 2rem 1.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 1rem 4%;
+    }
+
+    .accueil-content,
+    .medecins-content {
+        padding: 100px 4% 60px;
+    }
+
+    .accueil-box {
+        height: 400px;
+    }
+
+    .card {
+        padding: 1.5rem 1rem;
+    }
+
+    footer {
+        height: 70px;
+        font-size: 0.9rem;
+    }
+}

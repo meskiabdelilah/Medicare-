@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo"><img src="/assets/Frame 14.png" alt=""></a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="./Médecins.html">Médecins</a>
+            <a href="./Rendez-vous.html">Rendez-vous</a>
+        </nav>
+    </header>
+    <section class="rendez-vous" id="rendez-vous">
+        <div class="rendez-vous-content">
+            <form id="rendezVousForm">
+                <div class="information">
+                    <div class="information-choix">
+                        <label for="Nom">Nom:</label>
+                        <input type="text" id="Nom" required placeholder="prénom ">
+                    </div>
+                    <div class="information-choix">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required placeholder="exemple@gmail.com">
+                    </div>
+                    <div class="information-choix">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="information-choix">
+                        <label>Médecin Choisi:</label>
+                        <select name="recherche-medecins" id="recherche-medecins" required>
+                            <option value="" disabled selected>----- Sélectionnez votre Médecins -----</option>
+                            <option value="Dr.Marie Dubois">Dr.Marie Dubois</option>
+                            <option value="Dr.Ahmed Benali"> Dr.Ahmed Benali</option>
+                            <option value="Dr.Pierre Martin">Dr.Pierre Martin</option>
+                            <option value="Dr.Sophie Lefevre">Dr.Sophie Lefevre</option>
+                            <option value="Dr.Hamza Idrissi">Dr.Hamza Idrissi</option>
+                            <option value="Dr.Hana El Alami">Dr.Hana El Alami</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="submit" value="Envoyer" class="btn">
+            </form>
+            <div id="resultat" class="resultat"></div>
+
+        </div>
+    </section>
+    <script src="./script.js"></script>
+    <footer>
+        <p>© 2025 MediCare+. Tous droits réservés</p>
+    </footer>
+</body>
+
+</html>
